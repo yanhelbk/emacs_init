@@ -1,5 +1,3 @@
-(load-theme 'wombat)
-
 (setq frame-title-format "emacs")
 
 (menu-bar-mode -1)
@@ -26,8 +24,6 @@
 
 (setq x-select-enable-primary t)
 
-(global-set-key (kbd "<mouse-2>") 'x-clipboard-yank)
-
 (require 'package)
 
 (add-to-list 'package-archives
@@ -37,6 +33,38 @@
 
 (nlinum-mode)
 
+(load-theme 'monokai t)
+
 (global-set-key (kbd "M-x") 'smex)
 
 (global-set-key (kbd "C-c j") 'ace-jump-mode)
+
+(setq tramp-default-method "ssh")
+
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+
+(add-hook 'c++-mode-hook 'company-mode)
+(add-hook 'c-mode-hook 'company-mode)
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("5f27195e3f4b85ac50c1e2fac080f0dd6535440891c54fcfa62cdcefedf56b1b" default)))
+ '(package-selected-packages
+   (quote
+    (magit company-irony tramp-theme smex nlinum monokai-theme irony ace-jump-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
