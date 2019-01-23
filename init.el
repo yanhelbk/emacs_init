@@ -39,6 +39,8 @@
 
 (global-set-key (kbd "C-c j") 'ace-jump-mode)
 
+(global-set-key (kbd "C-c m") 'set-mark-command)
+
 (setq tramp-default-method "ssh")
 
 (add-hook 'c++-mode-hook 'irony-mode)
