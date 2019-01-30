@@ -45,12 +45,16 @@
 
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
 (eval-after-load 'company
   '(add-to-list 'company-backends 'company-irony))
 
 (add-hook 'c++-mode-hook 'company-mode)
 (add-hook 'c-mode-hook 'company-mode)
+(add-hook 'objc-mode-hook 'company-mode)
 
 
 (custom-set-variables
@@ -63,7 +67,7 @@
     ("5f27195e3f4b85ac50c1e2fac080f0dd6535440891c54fcfa62cdcefedf56b1b" default)))
  '(package-selected-packages
    (quote
-    (magit company-irony tramp-theme smex nlinum monokai-theme irony ace-jump-mode))))
+    (rtags magit company-irony tramp-theme smex nlinum monokai-theme irony ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
